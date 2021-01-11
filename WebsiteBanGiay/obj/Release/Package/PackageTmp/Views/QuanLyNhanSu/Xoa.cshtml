@@ -1,0 +1,74 @@
+﻿@model WebsiteBanGiay.Models.KhachHang
+@{
+    ViewBag.Title = "Xóa Khách hàng";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+<h2>Xác nhận Xóa</h2>
+<h3>Bạn chắc chắn muốn Xóa vị Khách này chứ ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaiKhoan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Giay)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Giay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quyen)
+        </dt>
+        @if (Model.Quyen == 1)
+        {
+            <dd>Admin</dd>
+        }
+        else
+        {
+            <dd>Khách hàng</dd>
+        }
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý Khách hàng", "Index")
+    </div>
+}

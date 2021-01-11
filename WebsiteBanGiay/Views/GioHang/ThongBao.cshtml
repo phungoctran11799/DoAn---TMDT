@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "ThongBao";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+    var time = DateTime.Now.Day + 3;
+    var month = DateTime.Now.Month;
+}
+
+<div style="text-align:center; text-align: center;
+    height: 220px;
+    margin: auto;">
+    <h2>THÔNG BÁO HOÁ ĐƠN</h2>
+    <h2>Đã mua hàng thành công, Sản phẩm sẽ được giao sớm nhất vào ngày @time/@month </h2>
+    <div>
+        <a style="color:black;
+                    margin: auto;
+                     margin-top: 50px;
+                        padding: 20px;
+                            max-width: 20%;
+                               display: block;" class="btn-warning" href="@Url.Action("Index","Home")">Tiếp Tục</a>
+    </div>
+</div>

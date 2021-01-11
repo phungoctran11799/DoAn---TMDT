@@ -1,0 +1,7 @@
+﻿@if ((ViewBag.KhachHang.MaKH == 1) && (ViewBag.KhachHang.Quyen == 1))
+{
+    <a href="@Url.Action("Index","QuanLyNhanSu")">
+        <i class="fa fa-male" aria-hidden="true"></i>
+        <span class="hidden-tablet"> Quản lý Khách hàng</span>
+    </a>
+}

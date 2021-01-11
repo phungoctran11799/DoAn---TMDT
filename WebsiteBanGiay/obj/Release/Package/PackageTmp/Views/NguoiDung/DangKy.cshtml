@@ -1,0 +1,78 @@
+﻿@model WebsiteBanGiay.Models.KhachHang
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout-dk.cshtml";
+}
+
+<div class="main-container nav-bg-color">
+    <div class="inside-container nav-contain">
+        <div id="KhachHang">
+            <h2>Đăng ký thành viên</h2>
+            <h4 id="CanhBao">@ViewBag.ThongBao</h4>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="TenDangNhap">Tên đăng nhập</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                        <div id="CanhBao">@Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="MatKhau">Mật khẩu</label>
+                    <div class="col-md-10">
+                        @Html.PasswordFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                        <div id="CanhBao">@Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="HoTen">Họ và Tên</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                        <span id="loiHoTen"></span>
+                        <div id="CanhBao">@Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="DiaChi">Địa chỉ</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                        <div id="CanhBao">@Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        <div id="CanhBao">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="HoTen">Điện thoại</label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "form-control" } })
+                        <div id="CanhBao">@Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="btnSubmit" type="submit" value="Đăng ký" class="btn btn-success" />
+                    </div>
+                </div>
+                
+            </div>
+            }
+            <div id="TroLai">
+                <a href="@Url.Action("Index","Home")">Trở lại Trang Chủ</a>
+            </div>
+        </div>
+    </div>
+</div>

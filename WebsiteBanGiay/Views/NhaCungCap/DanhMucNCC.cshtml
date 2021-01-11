@@ -1,0 +1,28 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<NhaCungCap>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Danh mục Nhà cung cấp";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+@*Hiển thị danh mục NCC*@
+<div style="text-align:center; text-align: center;
+    height: 220px;
+    margin: auto;">
+    @foreach (var item in Model)
+    {
+        <div id="divBody">
+            <div id="divBody">
+                <a style="color: black;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 5px;
+        padding: 20px;
+        max-width: 20%;
+        display: block;" class="btn btn-success" href="@Url.Action("GiayTheoNCC", "NhaCungCap", new { @_MaNCC=item.MaNCC})" class="button button-submit">@item.TenNCC</a>
+            </div>
+        </div>
+</div>
+
+
+}

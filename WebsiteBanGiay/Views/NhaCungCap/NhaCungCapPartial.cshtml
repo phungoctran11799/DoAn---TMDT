@@ -1,0 +1,8 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<NhaCungCap>
+<h1 style="color:red;font-weight:bold;">Nhà Cung Cấp</h1>
+@foreach (var item in Model)
+{
+    <div><a href="@Url.Action("GiayTheoNCC", "NhaCungCap", new { @_MaNCCB=item.MaNCC})">@item.TenNCC</a></div>
+}
+<div><a href="@Url.Action("DanhMucNCC", "NhaCungCap")">Nhà cung cấp khác..</a></div>

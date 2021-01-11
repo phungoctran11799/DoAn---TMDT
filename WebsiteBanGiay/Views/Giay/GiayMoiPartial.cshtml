@@ -1,0 +1,34 @@
+﻿@using WebsiteBanGiay.Models;
+@*Định nghĩa kiểu dữ liệu cho Model*@
+@model List<Giay>
+<link href="~/Content/home-index.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+@{
+    ViewBag.Title = "GiayMoi";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<div class="main-container nav-bg-color">
+    <div class="inside-container nav-contain">
+        <h1 class="item-header">Giày mới</h1>
+        @{
+            foreach (var item in Model)
+            {
+                <div class="activity-list-update">
+                    <img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="250" height="250" alt="Image">
+                    @*Nếu tên Giày dài quá 30 kí tự thì chỉ lấy từ ký tự 0 đến 30*@
+                    @if (item.TenGiay.Length > 30)
+                    {
+                        <p><strong titile="@item.TenGiay">Tiêu đề : </strong>@item.TenGiay.Substring(0, 30)...<br /><a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay=item.MaGiay})">Xem chi tiết</a></p>
+                    }
+                    else
+                    {
+                        <p><strong titile="@item.TenGiay">Tiêu đề : </strong>@item.TenGiay<br /><a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay=item.MaGiay})">Xem chi tiết</a></p>
+                        <div class="clear"></div>
+                    }
+                </div>
+            }
+        }
+        <Button href="#" class="btn btn-warning">Giày loại mới nhất</Button>
+    </div>
+</div>

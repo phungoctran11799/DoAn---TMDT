@@ -1,0 +1,59 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteBanGiay.Models.Log>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Quản lý Log";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Message)
+            </th>
+            <th>
+                Chức năng
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { @id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+    <div id="divBody">
+        <br />
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    </div>
+    <div id="divBody" class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", "QuanLyLog", new { _Page = page }))
+    </div>
+</body>
+</html>

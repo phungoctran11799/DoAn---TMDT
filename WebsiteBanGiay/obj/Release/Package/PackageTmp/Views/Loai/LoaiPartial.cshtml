@@ -1,0 +1,9 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<Loai>
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("GiayTheoLoai", "Loai", new { @_MaLoai=item.MaLoai})" style="width :425px;text-align:center;" class="button button-submit">@item.TenLoai</a>
+}
+@*Cắt phần hiển thị sai đi*@
+<br />
+<br /><a href="@Url.Action("DanhMucloai", "Loai")" style="width:100%;text-align:center;" class="button button-submit">Loại khác...</a>

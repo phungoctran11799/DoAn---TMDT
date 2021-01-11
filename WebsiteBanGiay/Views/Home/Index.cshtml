@@ -1,0 +1,244 @@
+﻿@using WebsiteBanGiay.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Giay>
+<link href="~/Content/HomeIndex.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<!--bodyupbook---->>
+<div class="main-container promotion-bg">
+    <div class="inside-container">
+        <div class="row">
+            <div class="col-12 our-header prom-padd">
+                <h2> Sản phẩm mới</h2> <br>
+                <br> <br>
+                @*divBody trang Index*@
+                <div id="divBody">
+                    @{int i = 0;}
+                    @foreach (var item in Model)
+                    {
+                        i++;
+                        <div id="SanPham">
+                            @*Lấy hình ảnh bìa làm liên kết tới trang xem chi tiết*@
+                            <a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay = item.MaGiay })">
+                                <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="220" height="220"></div>
+                            </a>
+                            <div id="Gia">
+                                <span id="TenGiay">@item.TenGiay</span><br />
+                                <span id="Gia">@string.Format("{0:0,0}", @item.GiaBan) đ</span>
+                            </div>
+                            <div>
+                                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @__MaGiay = item.MaGiay, @strURL = Request.Url.ToString() }))
+                                {
+                                    <input onclick="myFunction()" type="submit" style="cursor:pointer" value="Mua ngay &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                                }
+                            </div>
+                            <script>function myFunction() {
+                                alert("Đã thêm vào giỏ");
+                            }</script>
+                        </div>
+
+                        if (i == 3)
+                        {
+                            i = 0;
+                            <div style="clear:both"></div>
+                        }
+
+                    }
+                </div>
+
+                <div style="clear:both"></div>
+                <div id="divBody">
+                    <br />
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                </div>
+                <div id="divBody" class="MenuTrang">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", "Home", new { _Page = page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="inside-container">
+        <div class="row">
+            <div class="col-12 our-header">
+                <h2> Tại sao chúng tôi tốt nhất?</h2>
+                <div class="text-center">
+                    <hr> <i class="far fa-square rotate-45"></i> <i class="far fa-square rotate-45"></i> <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class=" col-sm-6 col-md-3  our-spec">
+                <div class="text-center">
+                    <i class="far fa-thumbs-up rounded-circle"></i>
+                </div>
+                <h3>Chất Lượng sản phẩm</h3>
+                <p>
+                    Tất cả các sản phẩm của chúng tôi đều có chính hãng và chất lượng tốt nhất trên thị trường.
+                </p>
+            </div>
+            <div class=" col-sm-6 col-md-3  our-spec">
+                <div class="text-center">
+                    <i class="fas fa-truck rounded-circle"></i>
+                </div>
+                <h3>Giao Hàng Tận Nơi</h3>
+                <p>Chúng tôi sở hữu đội ngũ giao hàng trong nội thành và giao hàng trên toàn quốc nhờ dịch vụ và sẽ có hàng nhanh nhất từ 2-3 ngày sau khi đặt hàng.</p>
+            </div>
+            <div class="col-sm-6 col-md-3  our-spec">
+                <div class="text-center">
+                    <i class="fas fa-headphones-alt rounded-circle"></i>
+                </div>
+                <h3>Hỗ Trợ 24/7</h3>
+                <p>Luôn có nhân viên tổng đài hỗ trợ khi khách hàng gọi vào số hotline lúc cần thiết.</p>
+            </div>
+            <div class="col-sm-6 col-md-3  our-spec">
+                <div class="text-center money-back">
+                    <i class="far fa-money-bill-alt rounded-circle"></i>
+                </div>
+                <h3> Thanh Toán Khi Nhận Hàng</h3>
+                <p>
+                    Chúng tôi có hỗ trợ thanh toán khi nhận hàng để hỗ trợ một số khách hàng không thể thanh toán online được.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--testimonial container-->
+<div class="main-container">
+    <div class="inside-container">
+        <div class="row">
+            <div class="col-12 our-header prom-padd">
+                <h2>Đánh giá khách hàng</h2>
+                <div class="text-center">
+                    <hr> <i class="far fa-square rotate-45"></i> <i class="far fa-square rotate-45"></i> <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 owl-seci">
+                <div class="owl-carousel owl-theme owl-testimonial">
+                    <div class="item item-over  ">
+                        <div class="all-testimonial">
+                            <div> <img class="img-box " src="/max-image/happy-client-5.jpg" alt=""></div>
+                            <div class="testimonial">
+                                <p><i class="fas fa-quote-left"></i></p>
+                                <p>
+                                    Chất lượng cửa hàng tốt có thể tin tưỡng về chất lượng, <br>
+                                    Nhân viên tư vấn nhiệt tình và hỗ trợ tốt về dịch vụ đặt hàng.<br>
+                                </p>
+                                <div class="stars-icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author">
+                            <span> Thành Trần</span>
+                        </div>
+                    </div>
+                    <div class="item item-over ">
+                        <div class="all-testimonial">
+                            <div> <img class="img-box " src="/max-image/happy-client.jpg" alt=""></div>
+                            <div class="testimonial">
+                                <p><i class="fas fa-quote-left"></i></p>
+                                <p>
+                                    Chất lượng cửa hàng tốt có thể tin tưỡng về chất lượng, <br>
+                                    Nhân viên tư vấn nhiệt tình và hỗ trợ tốt về dịch vụ đặt hàng.<br>
+                                </p>
+                                <div class="stars-icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author">
+                            <span> Phú Ngọc Trần</span>
+                        </div>
+                    </div>
+                    <div class="item item-over ">
+                        <div class="all-testimonial">
+                            <div> <img class="img-box " src="/max-image/happy-client-1.jpg" alt=""></div>
+                            <div class="testimonial">
+                                <p><i class="fas fa-quote-left"></i></p>
+                                <p>
+                                    Chất lượng cửa hàng tốt có thể tin tưỡng về chất lượng, <br>
+                                    Nhân viên tư vấn nhiệt tình và hỗ trợ tốt về dịch vụ đặt hàng.<br>
+                                </p>
+                                <div class="stars-icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author">
+                            <span> Hữu Quốc</span>
+                        </div>
+                    </div>
+                    <div class="item item-over ">
+                        <div class="all-testimonial">
+                            <div> <img class="img-box " src="/max-image/happy-client-3.jpg" alt=""></div>
+                            <div class="testimonial">
+                                <p><i class="fas fa-quote-left"></i></p>
+                                <p>
+                                    Chất lượng cửa hàng tốt có thể tin tưỡng về chất lượng, <br>
+                                    Nhân viên tư vấn nhiệt tình và hỗ trợ tốt về dịch vụ đặt hàng.<br>
+                                </p>
+                                <div class="stars-icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author">
+                            <span> Sơn Tùng MTP </span>
+                        </div>
+                    </div>
+                    <div class="item item-over ">
+                        <div class="all-testimonial">
+                            <div> <img class="img-box " src="/max-image/happy-client-2.jpg" alt=""></div>
+                            <div class="testimonial">
+                                <p><i class="fas fa-quote-left"></i></p>
+                                <p>
+                                    Chất lượng cửa hàng tốt có thể tin tưỡng về chất lượng, <br>
+                                    Nhân viên tư vấn nhiệt tình và hỗ trợ tốt về dịch vụ đặt hàng.<br>
+                                </p>
+                                <div class="stars-icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="js/script.js"></script>
+

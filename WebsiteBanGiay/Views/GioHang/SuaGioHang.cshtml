@@ -1,0 +1,52 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<GioHang>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Sửa Giỏ hàng";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<div class="main-container nav-bg-color">
+    <div class="inside-container nav-contain">
+        <div id="divGioHang">
+            <table class="table">
+                <tr>
+                    <th>Tên Giày</th>
+                    <th>Ảnh bìa</th>
+                    <th id="TenCot">Đơn giá</th>
+                    <th style="text-align:center;">Số lượng</th>
+                    <th id="TenCot">Thành tiền</th>
+                    <th id="TenCot">Cập nhật</th>
+                    <th id="TenCot">Xóa</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item._TenGiay</td>
+                        <td><a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay=item._MaGiay})"><img src="@Url.Content("~/HinhAnhSP/"+@item._AnhBia)" width="150" height="150" /></a></td>
+                        <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
+                        @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @__MaGiay = item._MaGiay }))
+                        {
+
+                            <td id="ChuSo">@Html.TextBox("txtSoLuong", @item._SoLuong)</td>
+                            <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
+                            <td id="TenCot">
+                                <input type="submit" class="btn btn-warning" value="Cập nhật" /><br />
+                            </td>
+
+                            <td>
+                                <a> @Html.ActionLink("Xóa", "XoaGioHang", new { @__MaGiay = item._MaGiay }) </a>
+                            </td>
+
+
+                        }
+                    </tr>
+                }
+                <tr>
+                    <td colspan="6" id="TenCot" style="color:green;">
+                        @Html.ActionLink("Trở lại Giỏ hàng", "GioHang")
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

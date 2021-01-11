@@ -1,0 +1,95 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<GioHang>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Hóa đơn";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+    var time = DateTime.Now.Day + 3;
+    var month = DateTime.Now.Month;
+    var year = DateTime.Now.Year;
+}
+<div class="main-container nav-bg-color">
+    <div class="inside-container nav-contain">
+        <div id="divGioHang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td id="ChuSo">Thông tin Khách hàng :</td>
+                    </tr>
+                    <tr>
+                        <td id="ChuSo">Họ và Tên :</td>
+                        <td></td>
+                        <td colspan="5">@ViewBag.KhachHang.HoTen</td>
+                    </tr>
+                    <tr>
+                        <td id="ChuSo">Địa chỉ :</td>
+                        <td></td>
+                        <td colspan="5">@ViewBag.KhachHang.DiaChi</td>
+                    </tr>
+                    <tr>
+                        <td id="ChuSo">Số điện thoại :</td>
+                        <td></td>
+                        <td colspan="5">@ViewBag.KhachHang.SoDienThoai</td>
+                    </tr>
+                    <tr>
+                        <td id="ChuSo">Email :</td>
+                        <td></td>
+                        <td colspan="5">@ViewBag.KhachHang.Email</td>
+                    </tr>
+                    <tr>
+                        <td id="ChuSo">Ngày đặt :</td>
+                        <td></td>
+                        <td colspan="5">@DateTime.Now.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <td id="ChuSo">Ngày giao :</td>
+                        <td></td>
+                        <td colspan="5"> @month/@time/@year</td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td id="ChuSo">Thông tin Sản phẩm :</td>
+                    </tr>
+                    <tr>
+                        <td>Tên giày</td>
+                        <td></td>
+                        <td>Ảnh bìa</td>
+                        <td id="TenCot">Đơn giá</td>
+                        <td id="TenCot">Số lượng</td>
+                        <td id="TenCot">Thành tiền</td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item._TenGiay</td>
+                            <td></td>
+                            <td><a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay=item._MaGiay})"><img src="@Url.Content("~/HinhAnhSP/"+@item._AnhBia)" width="100" height="150" /></a></td>
+                            <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
+                            <td id="ChuSo">@item._SoLuong</td>
+                            <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="6" id="ChuSo">
+                            Tổng tiền: @Html.Action("GioHangTongTien", "GioHang")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" id="TenCot">
+                            @using (Html.BeginForm("DatHang", "GioHang"))
+                            {
+                                <input type="submit" class="btn btn-success" value="Thanh toán MoMo" />
+                            }
+                        </td>
+                        <td colspan="6">
+                            @using (Html.BeginForm("DatHangTaiCuaHang", "GioHang"))
+                            {
+                                <input type="submit" class="btn btn-warning" value="Thanh toán Tại Cửa Hàng " />
+                            }
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>

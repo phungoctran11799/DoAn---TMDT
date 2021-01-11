@@ -1,0 +1,74 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: url(../img/fancy_shadow_ne.png);
+    background-size: 7px;
+}
+
+#nen {
+    widht: 900px;
+    margin: 0px auto;
+}
+
+#img {
+    width: 900px;
+    margin: 0px auto;
+}
+
+#dk {
+    margin: 0px auto;
+    width: 900px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+td {
+    padding: 5px 0px;
+}
+
+#nd {
+    margin: 0px 150px;
+    width: 900px;
+}
+
+label {
+    margin: 0px 30px;
+    color: #000020;
+    font-size: 20px;
+    font-family: serif;
+}
+
+.input1 {
+    padding: 5px 30px;
+    font-family: serif;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+span {
+    color: #F60;
+}
+
+.nut {
+    width: 100px;
+    padding: 6px 3px;
+    font-size: 18px;
+}
+
+p.xacnhanten {
+    margin-left: 40px;
+    width: 200px;
+    color: #F60;
+    font-size: 17px;
+}
+
+#hide {
+    display: none
+}
+
+#load {
+    display: inline-block;
+}

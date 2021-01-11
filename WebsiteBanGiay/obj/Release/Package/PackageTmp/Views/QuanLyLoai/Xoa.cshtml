@@ -1,0 +1,27 @@
+﻿@model WebsiteBanGiay.Models.Loai
+@{
+    ViewBag.Title = "Xóa Loại";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+<h2>Xác nhận Xóa</h2>
+<h3>Bạn chắc chắn muốn Xóa Loại này chứ ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý Loại", "Index")
+    </div>
+}

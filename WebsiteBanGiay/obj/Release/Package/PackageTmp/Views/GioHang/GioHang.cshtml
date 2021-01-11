@@ -1,0 +1,55 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<GioHang>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<div class="main-container nav-bg-color">
+    <div class="inside-container nav-contain">
+        <div id="divGioHang">
+            <table class="table">
+                <tr>
+                    <th>Tên giày</th>
+                    <th>Ảnh bìa</th>
+                    <th id="TenCot">Đơn giá</th>
+                    <th id="TenCot">Số lượng</th>
+                    <th id="TenCot">Thành tiền</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item._TenGiay</td>
+                        <td><a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay=item._MaGiay})"><img src="@Url.Content("~/HinhAnhSP/"+@item._AnhBia)" width="100" height="150" /></a></td>
+                        <td id="ChuSo">@string.Format("{0:0,0}", @item._DonGia) vnđ</td>
+                        <td id="ChuSo">@item._SoLuong</td>
+                        <td id="ChuSo">@string.Format("{0:0,0}", @item._ThanhTien) vnđ</td>
+                    </tr>
+                }
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td colspan="6" id="ChuSo">
+                        Tổng tiền: @Html.Action("GioHangTongTien", "GioHang")
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" id="TenCot">
+                        @using (Html.BeginForm("SuaGioHang", "GioHang"))
+                        {
+                            <input type="submit" class="btn btn-danger" value="Sửa Giỏ Hàng" />
+                        }
+                    </td>
+                    <td colspan="6" id="TenCot">
+                        @using (Html.BeginForm("HoaDon", "GioHang"))
+                        {
+                            <input type="submit" class="btn btn-success" value="Hoá Đơn" />
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model WebsiteBanGiay.Models.KhachHang
+@{
+    ViewBag.Title = "Hiện Thông tin";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<div id="KhachHang">
+    <h2>Thông tin Chi tiết Khách hàng</h2>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="HoTen">Họ và tên:</label>
+            @Html.DisplayFor(model => model.HoTen)
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="TenDangNhap">Tên đăng nhập:</label>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Email">Email:</label>
+            @Html.DisplayFor(model => model.Email)
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="DiaChi">Địa chỉ:</label>
+            @Html.DisplayFor(model => model.DiaChi)
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="DienThoai">Số điện thoại:</label>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Quyen">Quyền:</label>
+            @if (Model.Quyen == 1)
+            {
+                <a>Admin</a>
+            }
+            else
+            {
+                <a>Khách hàng</a>
+            }
+        </div>
+
+    </div>
+    <p id="TroLai">
+        @Html.ActionLink("Sửa", "ChinhSua", new { @_MaKH = Model.MaKH }) |
+        <a href="@Url.Action("Index","Home")">Trở lại Trang chủ</a>
+    </p>
+</div>

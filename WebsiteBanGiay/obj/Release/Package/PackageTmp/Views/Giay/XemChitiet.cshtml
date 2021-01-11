@@ -1,0 +1,39 @@
+﻿@using WebsiteBanGiay.Models;
+@model Giay
+<link href="~/Content/home-index.css" rel="stylesheet" />
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+@{
+    ViewBag.Title = "Chi tiết Giày";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+@section NoiDungBenPhai{
+    <div class="main-container nav-bg-color">
+        <div class="inside-container nav-contain">
+            <div id="HinhAnh">
+                <img src="@Url.Content("~/HinhAnhSP/"+Model.AnhBia)" width="250" height="250">
+            </div>
+            @*Thông tin chi tiết show ra cho người xem*@
+            <div id="ThongTin">
+                <div id="TenGiay">@Model.TenGiay</div>
+                <div id="TieuDe">Loại:</div>
+                <div id="TieuDe">Nội dung tóm tắt:</div>
+                <div id="MoTa">@Html.Raw(@Model.MoTa)</div>
+                <div id="Gia">
+                    <span id="TieuDe">Đơn giá: </span>
+                    <span id="Gia">@string.Format("{0:0,0}", @Model.GiaBan) đ</span>
+                </div>
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @__MaGiay = Model.MaGiay, @strURL = Request.Url.ToString() }))
+                {
+                    <input type="submit" onclick="myFunction()" style="cursor:pointer; background:#FF69B4" value="Mua ngay &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                }
+                <script>function myFunction() {
+                    alert("Đã thêm vào giỏ");
+                }</script>
+                <div class="elfsight-app-07e8349a-60ad-4e0c-b531-a6a35f12b52d"></div>
+            </div>
+            <div style="clear:both">
+                <div class="elfsight-app-f936ed30-b91e-4d21-90a8-f06a6bb16b83"></div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,35 @@
+﻿@model WebsiteBanGiay.Models.DonHang
+@{
+    ViewBag.Title = "Chỉnh sửa Đơn hàng";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+<h2>Tình trạng Mới của Đơn hàng</h2>
+@using (Html.BeginForm("ChinhSua", "QuanLyDonHang", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaDonHang)
+        @Html.HiddenFor(model => model.DaThanhToan)
+        @Html.HiddenFor(model => model.NgayDat)
+        @Html.HiddenFor(model => model.NgayGiao)
+        @Html.HiddenFor(model => model.MaKH)
+        <div class="form-group">
+            @Html.LabelFor(model => model.TinhTrangGiaoHang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TinhTrangGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TinhTrangGiaoHang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" style="background-color:orange;" value="Lưu thay đổi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Trở lại Trang Quản lý Đơn hàng", "Index")
+</div>

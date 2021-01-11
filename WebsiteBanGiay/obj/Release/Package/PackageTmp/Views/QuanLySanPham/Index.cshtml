@@ -1,0 +1,124 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteBanGiay.Models.Giay>
+<link href="~/Content/homeindex.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Quản lý Giày";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+<button>
+    @Html.ActionLink("Thêm mới Giày", "ThemMoi")
+</button>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenGiay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GiaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().AnhBia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayCapNhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SoLuongTon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaNCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Moi)
+        </th>
+        <th>
+            Chi tiết
+        </th>
+        <th>
+            Sửa
+        </th>
+        <th>
+            Xóa
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenGiay)
+            </td>
+            <td>
+                @string.Format("{0:0,0}", item.GiaBan) vnđ
+            </td>
+            <td>
+                @Html.Raw(item.MoTa)
+            </td>
+            <td>
+                <div id="HinhAnh"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="100" height="150"></div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaCungCap.TenNCC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+            </td>
+            @if (item.Moi == 1)
+            {
+                <td>Mới</td>}
+            else
+            {
+                <td>Cũ</td>}
+            <td>
+                @Html.ActionLink("Chi tiết", "HienThi", new { @_MaGiay = item.MaGiay })
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaGiay = item.MaGiay })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaGiay = item.MaGiay })
+            </td>
+        </tr>
+    }
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "QuanLySanPham", new { _Page = page }))
+</div>
+<div class="row">
+    <h1>Log</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Thời gian</th>
+                <th>Người quản lý</th>
+                <th>thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var log in ViewBag.Logs)
+            {
+                <tr>
+                    <td>@log.Time</td>
+                    <td>@log.Email</td>
+                    <td>@log.Message</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

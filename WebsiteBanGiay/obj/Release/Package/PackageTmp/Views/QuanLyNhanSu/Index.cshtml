@@ -1,0 +1,83 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebsiteBanGiay.Models.KhachHang>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Quản lý nhân sự";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TaiKhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SoDienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Quyen)
+        </th>
+        <th>
+            Chi tiết
+        </th>
+        <th>
+            Sửa
+        </th>
+        <th>
+            Xóa
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            @if (item.Quyen == 1)
+            {
+                <td>Admin</td>
+            }
+            else
+            {
+                <td>Khách hàng</td>
+            }
+            <td>
+                @Html.ActionLink("Chi tiết", "HienThi", new { @_MaKH = item.MaKH })
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaKH = item.MaKH })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaKH = item.MaKH })
+            </td>
+        </tr>
+    }
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "QuanLyNhanSu", new { _Page = page }))
+</div>

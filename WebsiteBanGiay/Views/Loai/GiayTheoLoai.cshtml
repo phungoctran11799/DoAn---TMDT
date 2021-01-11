@@ -1,0 +1,50 @@
+﻿@using WebsiteBanGiay.Models;
+@model List<Giay>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Giày theo Chủ đề";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<div class="main-container nav-bg-color">
+    <div class="inside-container nav-contain">
+        @if (Model.Count == 0)
+        {
+            <div id="divBody">
+                <h1>@ViewBag.Giay</h1>
+            </div>
+        }
+        else
+        {
+            <div id="divBody">
+                @{int i = 0;}
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <div id="SanPham">
+                        <a href="@Url.Action("XemChiTiet", "Giay", new { @_MaGiay = item.MaGiay })">
+                            <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="300" height="450"></div>
+                        </a>
+                        <div id="Gia">
+                            <span id="TieuDe">Tên Giày: </span>
+                            <span id="TenGiay">@item.TenGiay</span><br />
+                            <span id="TieuDe">Đơn giá : </span>
+                            <span id="Gia">@string.Format("{0:0,0}", @item.GiaBan) vnđ</span>
+                        </div>
+                        <div id="GioHang">
+                            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @__MaGiay = item.MaGiay, @strURL = Request.Url.ToString() }))
+                            {
+                                <input type="submit" style="cursor:pointer" value="Mua ngay &#xf07a;" id="btnGioHang" class="btn btn-primary">
+                            }
+                        </div>
+                    </div>
+                    if (i == 3)
+                    {
+                        i = 0;
+                        <div style="clear:both"></div>
+                    }
+                }
+            </div>
+            <div style="clear:both"></div>
+        }
+    </div>
+</div>

@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D40D661C-EA1E-44AD-9EC7-95982E60CE3D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebsiteBanGiay</RootNamespace>
+    <AssemblyName>WebsiteBanGiay</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\MoMoSecurity.cs" />
+    <Compile Include="Common\PaymentRequest.cs" />
+    <Compile Include="Controllers\GiayController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\NhaCungCapController.cs" />
+    <Compile Include="Controllers\QuanLyDonHangController.cs" />
+    <Compile Include="Controllers\QuanLyLoaiController.cs" />
+    <Compile Include="Controllers\QuanLyLogController.cs" />
+    <Compile Include="Controllers\QuanLyNCCController.cs" />
+    <Compile Include="Controllers\QuanLyNhanSuController.cs" />
+    <Compile Include="Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietDonHang.cs" />
+    <Compile Include="Models\DonHang.cs" />
+    <Compile Include="Models\Giay.cs" />
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\Loai.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\NhaCungCap.cs" />
+    <Compile Include="Models\QuanLyBanGiayModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="blog\insta-1.jpg" />
+    <Content Include="blog\insta-2.jpg" />
+    <Content Include="blog\insta-3.jpg" />
+    <Content Include="blog\insta-4.jpg" />
+    <Content Include="blog\insta-5.jpg" />
+    <Content Include="blog\insta-6.jpg" />
+    <Content Include="blog\post-1.jpg" />
+    <Content Include="blog\post-2.jpg" />
+    <Content Include="blog\post-3.jpg" />
+    <Content Include="blog\recent-post-1.jpg" />
+    <Content Include="blog\recent-post-2.jpg" />
+    <Content Include="blog\recent-post-3.jpg" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HomeIndex.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\TemplateAdmin\calendar.html" />
+    <Content Include="Content\TemplateAdmin\chart.html" />
+    <Content Include="Content\TemplateAdmin\css\bootstrap-responsive.css" />
+    <Content Include="Content\TemplateAdmin\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\TemplateAdmin\css\bootstrap.css" />
+    <Content Include="Content\TemplateAdmin\css\bootstrap.min.css" />
+    <Content Include="Content\TemplateAdmin\css\chosen.css" />
+    <Content Include="Content\TemplateAdmin\css\elfinder.min.css" />
+    <Content Include="Content\TemplateAdmin\css\elfinder.theme.css" />
+    <Content Include="Content\TemplateAdmin\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\TemplateAdmin\css\font-awesome.min.css" />
+    <Content Include="Content\TemplateAdmin\css\fullcalendar.css" />
+    <Content Include="Content\TemplateAdmin\css\glyphicons.css" />
+    <Content Include="Content\TemplateAdmin\css\halflings.css" />
+    <Content Include="Content\TemplateAdmin\css\ie.css" />
+    <Content Include="Content\TemplateAdmin\css\ie9.css" />
+    <Content Include="Content\TemplateAdmin\css\jquery-ui-1.8.21.custom.css" />
+    <Content Include="Content\TemplateAdmin\css\jquery.cleditor.css" />
+    <Content Include="Content\TemplateAdmin\css\jquery.gritter.css" />
+    <Content Include="Content\TemplateAdmin\css\jquery.iphone.toggle.css" />
+    <Content Include="Content\TemplateAdmin\css\jquery.noty.css" />
+    <Content Include="Content\TemplateAdmin\css\noty_theme_default.css" />
+    <Content Include="Content\TemplateAdmin\css\style-forms.css" />
+    <Content Include="Content\TemplateAdmin\css\style-responsive.css" />
+    <Content Include="Content\TemplateAdmin\css\style.css" />
+    <Content Include="Content\TemplateAdmin\css\uniform.default.css" />
+    <Content Include="Content\TemplateAdmin\css\uploadify.css" />
+    <Content Include="Content\TemplateAdmin\file-manager.html" />
+    <Content Include="Content\TemplateAdmin\font\glyphicons-regular.svg" />
+    <Content Include="Content\TemplateAdmin\font\glyphiconshalflings-regular.svg" />
+    <Content Include="Content\TemplateAdmin\form.html" />
+    <Content Include="Content\TemplateAdmin\gallery.html" />
+    <Content Include="Content\TemplateAdmin\icon.html" />
+    <Content Include="Content\TemplateAdmin\img\arrows-active.png" />
+    <Content Include="Content\TemplateAdmin\img\arrows-normal.png" />
+    <Content Include="Content\TemplateAdmin\img\avatar.jpg" />
+    <Content Include="Content\TemplateAdmin\img\bg-input-focus.png" />
+    <Content Include="Content\TemplateAdmin\img\bg-input.png" />
+    <Content Include="Content\TemplateAdmin\img\bg-login.jpg" />
+    <Content Include="Content\TemplateAdmin\img\browser-chrome-big.png" />
+    <Content Include="Content\TemplateAdmin\img\browser-firefox-big.png" />
+    <Content Include="Content\TemplateAdmin\img\browser-ie.png" />
+    <Content Include="Content\TemplateAdmin\img\browser-opera.png" />
+    <Content Include="Content\TemplateAdmin\img\browser-safari.png" />
+    <Content Include="Content\TemplateAdmin\img\buttons.gif" />
+    <Content Include="Content\TemplateAdmin\img\chat-left%402x.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-left-metro%402x.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-left-metro.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-left.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-right%402x.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-right-metro%402x.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-right-metro.png" />
+    <Content Include="Content\TemplateAdmin\img\chat-right.png" />
+    <Content Include="Content\TemplateAdmin\img\chosen-sprite.png" />
+    <Content Include="Content\TemplateAdmin\img\close-button-white.png" />
+    <Content Include="Content\TemplateAdmin\img\close-button.png" />
+    <Content Include="Content\TemplateAdmin\img\crop.gif" />
+    <Content Include="Content\TemplateAdmin\img\dialogs.png" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo1.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo10.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo11.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo12.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo13.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo2.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo3.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo4.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo5.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo6.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo7.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo8.jpg" />
+    <Content Include="Content\TemplateAdmin\img\gallery\photo9.jpg" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons-halflings.png" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons-white.png" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons-white.svg" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons.png" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons.svg" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons_halflings-white.png" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons_halflings-white.svg" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons_halflings.png" />
+    <Content Include="Content\TemplateAdmin\img\glyphicons_halflings.svg" />
+    <Content Include="Content\TemplateAdmin\img\icons-big.png" />
+    <Content Include="Content\TemplateAdmin\img\icons-small.png" />
+    <Content Include="Content\TemplateAdmin\img\iphone-style-checkboxes\off-63584.png" />
+    <Content Include="Content\TemplateAdmin\img\iphone-style-checkboxes\on-63584.png" />
+    <Content Include="Content\TemplateAdmin\img\iphone-style-checkboxes\slider_center-63584.png" />
+    <Content Include="Content\TemplateAdmin\img\iphone-style-checkboxes\slider_left-63584.png" />
+    <Content Include="Content\TemplateAdmin\img\iphone-style-checkboxes\slider_right-63584.png" />
+    <Content Include="Content\TemplateAdmin\img\progress.gif" />
+    <Content Include="Content\TemplateAdmin\img\quicklook-bg.png" />
+    <Content Include="Content\TemplateAdmin\img\quicklook-icons.png" />
+    <Content Include="Content\TemplateAdmin\img\quote.png" />
+    <Content Include="Content\TemplateAdmin\img\resize.png" />
+    <Content Include="Content\TemplateAdmin\img\slider_r8.png" />
+    <Content Include="Content\TemplateAdmin\img\spinner-mini.gif" />
+    <Content Include="Content\TemplateAdmin\img\sprite.png" />
+    <Content Include="Content\TemplateAdmin\img\timeline-bg.png" />
+    <Content Include="Content\TemplateAdmin\img\timeline-left-arrow%402x.png" />
+    <Content Include="Content\TemplateAdmin\img\timeline-left-arrow.png" />
+    <Content Include="Content\TemplateAdmin\img\timeline-right-arrow%402x.png" />
+    <Content Include="Content\TemplateAdmin\img\timeline-right-arrow.png" />
+    <Content Include="Content\TemplateAdmin\img\toolbar.gif" />
+    <Content Include="Content\TemplateAdmin\img\toolbar.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-icons_222222_256x240.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-icons_454545_256x240.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-icons_888888_256x240.png" />
+    <Content Include="Content\TemplateAdmin\img\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\TemplateAdmin\img\uploadify-cancel.png" />
+    <Content Include="Content\TemplateAdmin\index.html" />
+    <Content Include="Content\TemplateAdmin\js\bootstrap.js" />
+    <Content Include="Content\TemplateAdmin\js\bootstrap.min.js" />
+    <Content Include="Content\TemplateAdmin\js\counter.js" />
+    <Content Include="Content\TemplateAdmin\js\custom.js" />
+    <Content Include="Content\TemplateAdmin\js\excanvas.js" />
+    <Content Include="Content\TemplateAdmin\js\fullcalendar.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery-1.9.1.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery-migrate-1.0.0.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery-ui-1.10.0.custom.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.chosen.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.cleditor.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.cookie.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.dataTables.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.elfinder.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.flot.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.flot.pie.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.flot.resize.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.flot.stack.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.gritter.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.imagesloaded.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.iphone.toggle.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.knob.modified.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.masonry.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.noty.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.raty.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.sparkline.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.ui.touch-punch.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.uniform.min.js" />
+    <Content Include="Content\TemplateAdmin\js\jquery.uploadify-3.1.min.js" />
+    <Content Include="Content\TemplateAdmin\js\modernizr.js" />
+    <Content Include="Content\TemplateAdmin\js\retina.js" />
+    <Content Include="Content\TemplateAdmin\login.html" />
+    <Content Include="Content\TemplateAdmin\messages.html" />
+    <Content Include="Content\TemplateAdmin\submenu.html" />
+    <Content Include="Content\TemplateAdmin\submenu2.html" />
+    <Content Include="Content\TemplateAdmin\submenu3.html" />
+    <Content Include="Content\TemplateAdmin\table.html" />
+    <Content Include="Content\TemplateAdmin\tasks.html" />
+    <Content Include="Content\TemplateAdmin\typography.html" />
+    <Content Include="Content\TemplateAdmin\ui.html" />
+    <Content Include="Content\TemplateAdmin\widgets.html" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fa-brands.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fa-brands.min.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fa-regular.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fa-regular.min.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fa-solid.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fa-solid.min.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fontawesome-all.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fontawesome-all.min.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fontawesome.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\css\fontawesome.min.css" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-brands-400.svg" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-regular-400.svg" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-solid-900.svg" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\css\materialdesignicons.min.css" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="css\Admin-css\icons\themify-icons\fonts\themify.svg" />
+    <Content Include="css\Admin-css\icons\themify-icons\ie7\ie7.css" />
+    <Content Include="css\Admin-css\icons\themify-icons\ie7\ie7.js" />
+    <Content Include="css\Admin-css\icons\themify-icons\themify-icons.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\css\weather-icons-core.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\css\weather-icons-variables.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\css\weather-icons-wind.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\css\weather-icons-wind.min.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\css\weather-icons.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\css\weather-icons.min.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-beaufort.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-day.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-direction.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-misc.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-moon.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-neutral.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-night.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-time.css" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\css\variables-wind-names.css" />
+    <Content Include="css\Admin-css\style.css" />
+    <Content Include="css\Admin-css\style.min.css" />
+    <Content Include="css\blog-single-style.css" />
+    <Content Include="css\blog-style.css" />
+    <Content Include="css\contact-style.css" />
+    <Content Include="css\service-style.css" />
+    <Content Include="css\Style-dangky.css" />
+    <Content Include="css\Style-dangnhap.css" />
+    <Content Include="css\style-update.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\background.jpg" />
+    <Content Include="images\banner1.jpg" />
+    <Content Include="images\fac.png" />
+    <Content Include="images\foot-logo.jpg" />
+    <Content Include="images\l.png" />
+    <Content Include="images\Logo 4.png" />
+    <Content Include="images\m.png" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="js\dangkyController.js" />
+    <Content Include="js\fontawesome.js" />
+    <Content Include="js\fontawesome.min.js" />
+    <Content Include="js\Hover.js" />
+    <Content Include="js\jquery.flexslider.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\map.js" />
+    <Content Include="js\memenu.js" />
+    <Content Include="js\responsiveslides.min.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\simpleCart.min.js" />
+    <Content Include="logos\Logo 1.png" />
+    <Content Include="logos\logo 3.png" />
+    <Content Include="logos\Logo 4.png" />
+    <Content Include="logos\Logo2.png" />
+    <Content Include="max-image\brochures-2.jpg" />
+    <Content Include="max-image\brochures.jpg" />
+    <Content Include="max-image\bussines-1.jpg" />
+    <Content Include="max-image\bussines-2.jpg" />
+    <Content Include="max-image\bussines-card-2.jpg" />
+    <Content Include="max-image\bussines-card-3.jpg" />
+    <Content Include="max-image\bussines-card-4.jpg" />
+    <Content Include="max-image\bussines-card-5.jpg" />
+    <Content Include="max-image\bussines-card.jpg" />
+    <Content Include="max-image\happy-client-1.jpg" />
+    <Content Include="max-image\happy-client-2.jpg" />
+    <Content Include="max-image\happy-client-3.jpg" />
+    <Content Include="max-image\happy-client-5.jpg" />
+    <Content Include="max-image\happy-client.jpg" />
+    <Content Include="max-image\our-team-1.jpg" />
+    <Content Include="max-image\our-team-2.jpg" />
+    <Content Include="max-image\our-team-3.jpg" />
+    <Content Include="max-image\our-team-4.jpg" />
+    <Content Include="max-image\our-team-5.jpg" />
+    <Content Include="max-image\our-team.jpg" />
+    <Content Include="max-image\post-card-2.jpg" />
+    <Content Include="max-image\post-card-3.jpg" />
+    <Content Include="max-image\post-card-4.jpg" />
+    <Content Include="max-image\post-card-5.jpg" />
+    <Content Include="max-image\post-card-6.jpg" />
+    <Content Include="max-image\post-card.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\TemplateAdmin\font\fontawesome-webfont-0.eot" />
+    <Content Include="Content\TemplateAdmin\font\fontawesome-webfont-62877.eot" />
+    <Content Include="Content\TemplateAdmin\font\fontawesome-webfont-62877.ttf" />
+    <Content Include="Content\TemplateAdmin\font\fontawesome-webfont-62877.woff" />
+    <Content Include="Content\TemplateAdmin\font\glyphicons-regular-0.eot" />
+    <Content Include="Content\TemplateAdmin\font\glyphicons-regular.eot" />
+    <Content Include="Content\TemplateAdmin\font\glyphicons-regular.ttf" />
+    <Content Include="Content\TemplateAdmin\font\glyphicons-regular.woff" />
+    <Content Include="Content\TemplateAdmin\font\glyphiconshalflings-regular-0.eot" />
+    <Content Include="Content\TemplateAdmin\font\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\TemplateAdmin\font\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\TemplateAdmin\font\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\TemplateAdmin\README.md" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\fa-brands.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\fa-regular.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\fa-solid.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\fontawesome.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_animated.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_bordered-pulled.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_core.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_fixed-width.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_icons.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_larger.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_list.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_mixins.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_rotated-flipped.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_screen-reader.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_stacked.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\less\_variables.less" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\fa-brands.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\fa-regular.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\fa-solid.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\fontawesome.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_animated.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_core.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_icons.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_larger.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_list.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_mixins.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_stacked.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\scss\_variables.scss" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-brands-400.eot" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-brands-400.woff" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-regular-400.eot" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-regular-400.woff" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-solid-900.eot" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-solid-900.woff" />
+    <Content Include="css\Admin-css\icons\font-awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="css\Admin-css\icons\material-design-iconic-font\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="css\Admin-css\icons\themify-icons\fonts\themify.eot" />
+    <Content Include="css\Admin-css\icons\themify-icons\fonts\themify.ttf" />
+    <Content Include="css\Admin-css\icons\themify-icons\fonts\themify.woff" />
+    <Content Include="css\Admin-css\icons\themify-icons\themify-icons.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="css\Admin-css\icons\weather-icons\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="css\Admin-css\icons\weather-icons\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="css\Admin-css\icons\weather-icons\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-beaufort.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-day.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-direction.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-misc.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-moon-aliases.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-moon.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-neutral.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-night.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-time.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-wind-aliases.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-wind-degrees.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-classes\classes-wind.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-beaufort.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-day.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-direction.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-misc.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-moon.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-neutral.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-night.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-time.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\icon-variables\variables-wind-names.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\mappings\wi-forecast-io.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\mappings\wi-owm.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\mappings\wi-wmo4680.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\mappings\wi-yahoo.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons-classes.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons-core.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons-variables.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons-wind.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons-wind.min.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\less\weather-icons.min.less" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-beaufort.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-day.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-direction.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-misc.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-moon-aliases.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-moon.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-neutral.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-night.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-time.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-wind-aliases.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-wind-degrees.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-classes\classes-wind.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-beaufort.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-day.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-direction.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-misc.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-moon.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-neutral.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-night.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-time.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\icon-variables\variables-wind-names.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\mappings\wi-forecast-io.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\mappings\wi-owm.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\mappings\wi-wmo4680.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\mappings\wi-yahoo.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons-classes.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons-core.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons-variables.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons-wind.min.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons-wind.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons.min.scss" />
+    <Content Include="css\Admin-css\icons\weather-icons\sass\weather-icons.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="service\brochure.jpg" />
+    <Content Include="service\bussines-card.jpg" />
+    <Content Include="service\post-card-1.jpg" />
+    <Content Include="service\post-card.jpg" />
+    <Content Include="service\posters.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\LayOut\AdminLayout.cshtml" />
+    <Content Include="Views\LayOut\NguoiDungLayout.cshtml" />
+    <Content Include="Views\Giay\GiayMoiPartial.cshtml" />
+    <Content Include="Views\Giay\XemChitiet.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\GioHang\HoaDon.cshtml" />
+    <Content Include="Views\GioHang\GioHangTongTien.cshtml" />
+    <Content Include="Views\GioHang\ThongBao.cshtml" />
+    <Content Include="Views\Loai\GiayTheoLoai.cshtml" />
+    <Content Include="Views\Loai\DanhMucLoai.cshtml" />
+    <Content Include="Views\Loai\LoaiPartial.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\NguoiDung\ChinhSua.cshtml" />
+    <Content Include="Views\NguoiDung\HienThi.cshtml" />
+    <Content Include="Views\NguoiDung\NguoiDungPartial.cshtml" />
+    <Content Include="Views\NguoiDung\NguoiDungQuanTri.cshtml" />
+    <Content Include="Views\NhaCungCap\GiayTheoNCC.cshtml" />
+    <Content Include="Views\NhaCungCap\DanhMucNCC.cshtml" />
+    <Content Include="Views\NhaCungCap\NhaCungCapPartial.cshtml" />
+    <Content Include="Views\QuanLyDonHang\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyDonHang\Index.cshtml" />
+    <Content Include="Views\QuanLyLoai\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLyLoai\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyLoai\Xoa.cshtml" />
+    <Content Include="Views\QuanLyLoai\Index.cshtml" />
+    <Content Include="Views\QuanLyLog\Index.cshtml" />
+    <Content Include="Views\QuanLyLog\Details.cshtml" />
+    <Content Include="Views\QuanLyNCC\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLyNCC\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyNCC\Xoa.cshtml" />
+    <Content Include="Views\QuanLyNCC\HienThi.cshtml" />
+    <Content Include="Views\QuanLyNCC\Index.cshtml" />
+    <Content Include="Views\QuanLyNhanSu\Index.cshtml" />
+    <Content Include="Views\QuanLyNhanSu\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyNhanSu\HienThi.cshtml" />
+    <Content Include="Views\QuanLyNhanSu\Xoa.cshtml" />
+    <Content Include="Views\QuanLySanPham\Index.cshtml" />
+    <Content Include="Views\QuanLySanPham\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLySanPham\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLySanPham\HienThi.cshtml" />
+    <Content Include="Views\QuanLySanPham\Xoa.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\Shared\_Layout-dk.cshtml" />
+    <Content Include="Views\GioHang\Camonquykhach.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="HinhAnhSP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59672</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59672/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
